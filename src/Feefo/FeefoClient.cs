@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Feefo.Requests;
 using Feefo.Responses;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Feefo
 {
@@ -46,17 +49,31 @@ namespace Feefo
         public async Task<FeefoClientResponse> GetFeedbackAsync(FeedbackRequest feedbackRequest, CancellationToken cancellationToken = default(CancellationToken))
         {
             var httpClient = CreateHttpClient();
-            var queryString = _queryStringFactory.Create(_feefoSettings.Logon, feedbackRequest);
+            var queryString = _queryStringFactory.Create(_feefoSettings, feedbackRequest);
 
             var response = await httpClient.GetAsync(queryString, cancellationToken)
                 .ConfigureAwait(false);
 
             response.EnsureSuccessStatusCode();
 
-            var content = await response.Content.ReadAsAsync<Rootobject>(cancellationToken)
+            var jsonSettings = new JsonSerializerSettings
+            {
+                Formatting = Newtonsoft.Json.Formatting.Indented,
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                DateTimeZoneHandling = DateTimeZoneHandling.Utc,
+                StringEscapeHandling = StringEscapeHandling.EscapeNonAscii,
+                DefaultValueHandling = DefaultValueHandling.Ignore
+            };
+
+
+            var content = await response.Content.ReadAsStringAsync()
                 .ConfigureAwait(false);
 
-            return new FeefoClientResponse(content?.FeedbackList);
+            //content = Convert.ToBase64String(Encoding.UTF8.GetBytes(content));
+
+            var content2 = JsonConvert.DeserializeObject<Rootobject>(content, jsonSettings);
+            
+            return new FeefoClientResponse(content2?.FeedbackList);
         }
 
         public void Dispose()

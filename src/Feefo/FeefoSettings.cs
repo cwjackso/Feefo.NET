@@ -6,6 +6,7 @@ namespace Feefo
     public static class FeefoDefaults
     {
         public static readonly Uri BaseUri = new Uri("http://www.feefo.com/feefo/xmlfeed.jsp");
+        
     }
 
     public class FeefoSettings : IFeefoSettings
@@ -16,14 +17,18 @@ namespace Feefo
         {
         }
 
-        public FeefoSettings(Uri baseUri, string logon)
+        public FeefoSettings(Uri baseUri, string logon, string merchantidentifier = "")
         {
             Logon = logon;
+            MerchantIdentifier = merchantidentifier;
             BaseUri = baseUri;
         }
 
         public string Logon { get; }
 
+        public string MerchantIdentifier { get; }
+
         public Uri BaseUri { get; }
+
     }
 }

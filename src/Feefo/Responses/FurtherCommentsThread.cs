@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Feefo.JsonConverters;
 using Newtonsoft.Json;
 
 namespace Feefo.Responses
 {
+    
     public class FurtherCommentsThread
     {
         /// <summary>

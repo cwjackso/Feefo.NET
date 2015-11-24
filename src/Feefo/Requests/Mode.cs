@@ -32,6 +32,6 @@ namespace Feefo.Requests
         /// mode = productco will generally result in a disproportionate number
         /// of negative ratings being listed.
         /// </summary>
-        ProductCo
+        ProductCo,
     }
 }

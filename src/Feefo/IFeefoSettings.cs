@@ -6,6 +6,8 @@ namespace Feefo
     {
         string Logon { get; }
 
+        string MerchantIdentifier { get; }
+
         Uri BaseUri { get; }
     }
 }

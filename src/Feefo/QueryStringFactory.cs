@@ -6,10 +6,18 @@ namespace Feefo
 {
     public class QueryStringFactory : IQueryStringFactory
     {
-        public string Create(string logon, FeedbackRequest feedbackRequest)
+        public string Create(IFeefoSettings settings, FeedbackRequest feedbackRequest)
         {
-            var query = $"?logon={logon}&json=true";
-
+            var query = "";
+            if (!string.IsNullOrEmpty(settings.Logon))
+            {
+                query = $"?logon={settings.Logon}&json=true";
+            }
+            else if (!string.IsNullOrEmpty(settings.MerchantIdentifier))
+            {
+                query = $"?merchantidentifier={settings.MerchantIdentifier}&json=true";
+            }
+            
             if (feedbackRequest.VendorRef != null)
             {
                 query += $"&vendorref={feedbackRequest.VendorRef}";
@@ -32,8 +40,8 @@ namespace Feefo
 
             if (feedbackRequest.Limit.HasValue)
             {
-                query += $"&limit={feedbackRequest.Limit.Value}";
-            }
+                query += $"&limit={feedbackRequest.Limit} ";
+            } 
 
             if (feedbackRequest.Mode != Mode.None)
             {

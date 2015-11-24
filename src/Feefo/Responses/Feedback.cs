@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Feefo.JsonConverters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -56,7 +57,7 @@ namespace Feefo.Responses
         /// A rating from bad to excellent.
         /// </summary>
         [JsonProperty(PropertyName = "HREVIEWRATING")]
-        public Rating HReviewRating { get; set; }
+        public Rating? HReviewRating { get; set; }
 
         /// <summary>
         /// The URL of the product page on the supplier's site.
@@ -88,7 +89,7 @@ namespace Feefo.Responses
         /// </summary>
         [JsonProperty(PropertyName = "SERVICERATING")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public Rating ServiceRating { get; set; }
+        public Rating? ServiceRating { get; set; }
 
         /// <summary>
         /// A shortened version of the customer comment, ending in an ellipsis (...) for use when displaying
@@ -101,7 +102,7 @@ namespace Feefo.Responses
         /// Contains all vendor comments, and all follow-up customer comments.
         /// </summary>
         [JsonProperty(PropertyName = "FURTHERCOMMENTSTHREAD")]
-        public FurtherCommentsThread FurtherCommentsThread { get; set; }
+        public List<Post> FurtherCommentsThread { get; set; }
 
         /// <summary>
         /// The latest product review.

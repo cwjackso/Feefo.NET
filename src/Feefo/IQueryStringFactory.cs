@@ -4,6 +4,6 @@ namespace Feefo
 {
     public interface IQueryStringFactory
     {
-        string Create(string logon, FeedbackRequest feedbackRequest);
+        string Create(IFeefoSettings settings, FeedbackRequest feedbackRequest);
     }
 }

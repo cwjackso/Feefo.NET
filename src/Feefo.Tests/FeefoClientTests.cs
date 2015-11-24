@@ -137,7 +137,7 @@ namespace Feefo.Tests
                     FacebookShareLink =
                         "http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.feefo.com%2FGB%2Fen%2Freviews%2FExample-Supplier-Ltd%2F%3Fid%3D13%26servicefeedbackid%3D7445479",
                     FeedbackId = 7445479,
-                    FurtherCommentsThread = new FurtherCommentsThread()
+                    /*FurtherCommentsThread = new FurtherCommentsThread()
                     {
                         Posts = new List<Post>()
                         {
@@ -154,7 +154,7 @@ namespace Feefo.Tests
                                 ServiceRating = Rating.Excellent
                             }
                         }
-                    },
+                    },*/
                     DateTime = new DateTime(2015, 09, 08, 14, 57, 50),
                     Link = "http://www.examplesupplier.com/product_info.php?products_id=Comment013OSCommerceOSCommerce",
                     ProductCode = "Comment01",
@@ -179,7 +179,7 @@ namespace Feefo.Tests
                     FacebookShareLink =
                         "http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.feefo.com%2FGB%2Fen%2Freviews%2FExample-Supplier-Ltd%2F%3Fid%3D13%26servicefeedbackid%3D7445404",
                     FeedbackId = 7445404,
-                    FurtherCommentsThread = new FurtherCommentsThread
+                    /*FurtherCommentsThread = new FurtherCommentsThread
                     {
                         Posts = new List<Post>()
                         {
@@ -199,7 +199,7 @@ namespace Feefo.Tests
                                 VendorComment = "Product :this is a test for the second time.<br><br>Adrian"
                             }
                         }
-                    },
+                    },*/
                     DateTime = new DateTime(2015, 07, 08, 21, 57, 22),
                     HReviewRating = Rating.Excellent,
                     Link = "http://www.examplesupplier.com/product_info.php?products_id=1323OSCommerceOSCommerce",
@@ -224,7 +224,7 @@ namespace Feefo.Tests
                     FacebookShareLink =
                         "http://www.facebook.com/sharer.php?u=http%3A%2F%2Fwww.feefo.com%2FGB%2Fen%2Freviews%2FExample-Supplier-Ltd%2F%3Fid%3D13%26servicefeedbackid%3D7445167",
                     FeedbackId = 7445167,
-                    FurtherCommentsThread = new FurtherCommentsThread
+                    /*FurtherCommentsThread = new FurtherCommentsThread
                     {
                         Posts = new List<Post>
                         {
@@ -234,7 +234,7 @@ namespace Feefo.Tests
                                 VendorComment = "Test<br><br>Adrian"
                             }
                         }
-                    },
+                    },*/
                     DateTime = new DateTime(2015, 04, 17, 09, 52, 13),
                     HReviewRating = Rating.Excellent,
                     Link = "http://www.examplesupplier.com/product_info.php?products_id=Test3OSCommerceOSCommerce",

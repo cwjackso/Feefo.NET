@@ -11,6 +11,7 @@ namespace Feefo.Tests.QueryStringFactoryTests
     {
         private QueryStringFactory _factory;
         private string _logon;
+        private IFeefoSettings _settings;
         private string _result;
 
         [TestFixtureSetUp]
@@ -23,7 +24,10 @@ namespace Feefo.Tests.QueryStringFactoryTests
         public void WhenCreatingAQueryStringFromALogon()
         {
             _logon = Guid.NewGuid().ToString();
-            _result = _factory.Create(_logon, WithFeedbackRequest());
+            
+            _settings = new FeefoSettings(_logon);
+
+            _result = _factory.Create(_settings, WithFeedbackRequest());
         }
 
         protected virtual FeedbackRequest WithFeedbackRequest()
